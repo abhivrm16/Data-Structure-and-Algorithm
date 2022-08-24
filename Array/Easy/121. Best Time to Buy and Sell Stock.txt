@@ -1,0 +1,21 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+        
+        // keep record of min value
+        // keep record of max profit with each array elements
+       
+        int maxprofit=Integer.MIN_VALUE;
+        int minVal=Integer.MAX_VALUE;
+        
+        for(int i=0;i<prices.length;i++)
+        {
+            minVal=Math.min(prices[i],minVal);
+            maxprofit=Math.max(maxprofit,prices[i]-minVal);
+            
+        }
+        
+        return maxprofit;
+        
+    }
+}
