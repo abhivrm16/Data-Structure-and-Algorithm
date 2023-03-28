@@ -1,0 +1,27 @@
+169. Majority Element
+
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+
+Approach:  Boyer More voting algorithm-------
+
+The algorithm maintains a majority element candidate and a count. Initially, the candidate is set to the first element of the array and the count is set to 1. Then, it iterates through the array and updates the count and candidate as follows:
+
+-->If the current element is the same as the candidate, increment the count.
+-->If the current element is different from the candidate and the count is 0, set the candidate to 	
+   the current element and the count to 1.
+-->If the current element is different from the candidate and the count is not 0, decrement the   
+   count.
