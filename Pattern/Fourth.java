@@ -28,7 +28,7 @@ public class Fourth {
 
         // Print asterisks in each row
         for (int k = 1; k <= i; k++) {
-            System.out.print(" *");
+            System.out.print("* ");
         }
 
         // Move to the next line
