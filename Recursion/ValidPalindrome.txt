@@ -1,0 +1,54 @@
+125. Valid Palindrome
+
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+Example 3:
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+
+
+In this implementation, we use a StringBuilder to build the preprocessed string character by character. We loop through each character in the input string using the toCharArray() method, and check if it is a letter or a digit using the isLetterOrDigit() method. If so, we append the lowercase version of the character to the StringBuilder.
+
+We then call the recursive helper function isPalindromeHelper with the starting and ending indices of the preprocessed string.
+
+
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                sb.append(Character.toLowerCase(c));
+            }
+        }
+        return isPalindromeHelper(sb.toString(), 0, sb.length() - 1);
+    }
+    
+    private boolean isPalindromeHelper(String s, int i, int j) {
+        if (i >= j) {
+            return true;
+        } else if (s.charAt(i) != s.charAt(j)) {
+            return false;
+        } else {
+            return isPalindromeHelper(s, i + 1, j - 1);
+        }
+    }
+}
