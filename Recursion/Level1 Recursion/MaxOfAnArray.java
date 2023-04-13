@@ -9,10 +9,9 @@ public class MaxOfAnArray {
 
     }
     private static int Finbmax(int[] arr, int i) {
-        if(i==arr.length-1) return arr[arr.length-1];
+        if(i==arr.length-1) return arr[i];
 
-         max=Math.max(arr[i], Finbmax(arr, i+1));
-
-         return max;
+        int max=Math.max(arr[i],Finbmax(arr, i+1));
+        return max;
     }
 }
